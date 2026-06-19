@@ -1,6 +1,11 @@
 node_modules/
 dist/
+.next/
 *.tsbuildinfo
 *.log
 .env
 .env.*
+!.env.example
+.chrome-shot*/
+buc-mockup-*.png
+buc-mockup-source.html
