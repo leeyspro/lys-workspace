@@ -88,12 +88,12 @@ export default function BucPlatformPage() {
       <header className="topbar">
         <Link className="brand" href="/">Data Lab</Link>
         <nav className="globalNav" aria-label="학습 트랙">
-          <Link href="/adsp">ADsP</Link>
-          <Link href="/#sql">SQL</Link>
-          <Link href="/aws">AWS</Link>
-          <Link className="activeTrack" href="/buc">부과대</Link>
+          <Link href="/adsp#dashboard">ADsP</Link>
+          <Link href="/sqld#dashboard">SQLD</Link>
+          <Link href="/aws#dashboard">AWS</Link>
+          <Link href="/smart-social#dashboard">AI DX</Link>
         </nav>
-        <button className="loginButton" type="button">로그인 준비중</button>
+        <button className="loginButton" type="button">login</button>
       </header>
 
       <article className="bucDoc">

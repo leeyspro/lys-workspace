@@ -160,15 +160,16 @@ export default function CloudPractitionerStudyPlanPage() {
       <header className="topbar">
         <Link className="brand" href="/">Data Lab</Link>
         <nav className="globalNav" aria-label="학습 트랙">
-          <Link href="/adsp">ADsP</Link>
-          <Link href="/#sql">SQL</Link>
-          <Link className="activeTrack" href="/aws">AWS</Link>
-          <Link href="/buc">부과대</Link>
+          <Link href="/adsp#dashboard">ADsP</Link>
+          <Link href="/sqld#dashboard">SQLD</Link>
+          <Link className="activeTrack" href="/aws#dashboard">AWS</Link>
+          <Link href="/smart-social#dashboard">AI DX</Link>
         </nav>
         <Link className="loginButton linkButton" href="/aws/study">AWS 학습</Link>
       </header>
 
       <nav className="trackNav" aria-label="AWS 내부 메뉴">
+        <Link href="/aws#dashboard">Dashboard</Link>
         <Link href="/aws/education">AWS 교육</Link>
         <Link href="/aws/study">AWS 학습</Link>
       </nav>

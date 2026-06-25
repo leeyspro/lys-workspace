@@ -12,12 +12,12 @@ const tracks = [
   },
   {
     id: 'sql',
-    title: 'SQL',
-    subtitle: 'SQLD / SQLP 학습 확장',
-    status: '예정',
-    description: 'SQL 기본 문법, 모델링, 실전 문제풀이를 이후 트랙으로 추가합니다.',
-    href: '#sql',
-    progress: '준비 예정',
+    title: 'SQLD',
+    subtitle: 'SQL 개발자',
+    status: '진행중',
+    description: '데이터 모델링, SQL 기본·활용, 문제유형과 학습관리를 정리합니다.',
+    href: '/sqld',
+    progress: '초기 구성',
   },
   {
     id: 'aws',
@@ -37,6 +37,15 @@ const tracks = [
     href: '/buc',
     progress: '기능정의 정리',
   },
+  {
+    id: 'smart-social',
+    title: 'AI DX',
+    subtitle: '스마트소셜 업무 기록',
+    status: '업무관리',
+    description: '스마트소셜 AI DX 사업부의 사이트, 대학별 프로젝트, DX-Spark 업무 내용을 날짜별로 관리합니다.',
+    href: '/smart-social',
+    progress: '업무 로그 구성',
+  },
 ];
 
 export default function DataLabHome() {
@@ -45,19 +54,19 @@ export default function DataLabHome() {
       <header className="topbar">
         <Link className="brand" href="/">Data Lab</Link>
         <nav className="globalNav" aria-label="학습 트랙">
-          <Link href="/adsp">ADsP</Link>
-          <a href="#sql">SQL</a>
-          <Link href="/aws">AWS</Link>
-          <Link href="/buc">부과대</Link>
+          <Link href="/adsp#dashboard">ADsP</Link>
+          <Link href="/sqld#dashboard">SQLD</Link>
+          <Link href="/aws#dashboard">AWS</Link>
+          <Link href="/smart-social#dashboard">AI DX</Link>
         </nav>
-        <button className="loginButton" type="button">로그인 준비중</button>
+        <button className="loginButton" type="button">login</button>
       </header>
 
       <section className="labHero">
         <p className="eyebrow">Personal Learning Workspace</p>
         <h1>Data Lab</h1>
         <p>
-          ADsP를 시작으로 SQL, AWS까지 확장할 개인 학습 포털입니다.
+          ADsP를 시작으로 SQLD, AWS까지 확장할 개인 학습 포털입니다.
           자격증별 대시보드와 요약노트, 문제유형, 학습기록을 트랙별로 관리합니다.
         </p>
       </section>
@@ -96,7 +105,7 @@ export default function DataLabHome() {
             <p className="eyebrow">Next Expansion</p>
             <h2>확장 방향</h2>
           </div>
-          <p>SQL은 같은 구조로 대시보드, 개념요약, 문제유형, 학습관리 페이지를 추가할 수 있게 열어둡니다.</p>
+          <p>SQLD는 같은 구조로 대시보드, 개념요약, 문제유형, 학습관리 페이지를 추가할 수 있게 구성합니다.</p>
         </article>
       </section>
     </main>

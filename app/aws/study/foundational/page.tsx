@@ -4,6 +4,9 @@ import AwsStudySidebar from '../AwsStudySidebar';
 const compareItems = [
   {
     title: 'Cloud Practitioner',
+    korean: '클라우드 입문',
+    code: 'CLF-C02',
+    level: 'FOUNDATIONAL',
     role: '입문: AWS 클라우드 기본',
     summary: 'AWS Cloud의 기본 구조, 주요 서비스, 보안, 비용, 지원 체계를 넓게 이해하는 자격증입니다.',
     mustKnow: ['Region·AZ', 'Shared Responsibility', 'EC2·S3·RDS·Lambda', 'IAM·KMS', 'Cost Tools'],
@@ -11,6 +14,9 @@ const compareItems = [
   },
   {
     title: 'AI Practitioner',
+    korean: 'AI 입문',
+    code: 'AIF-C01',
+    level: 'FOUNDATIONAL',
     role: '입문: AWS AI 기본',
     summary: 'AI, ML, 생성형 AI 개념과 AWS AI 서비스 사용 사례를 이해하는 자격증입니다.',
     mustKnow: ['AI·ML Difference', 'Generative AI', 'Foundation Model', 'Amazon Bedrock', 'Responsible AI'],
@@ -35,7 +41,7 @@ const studyFlow = [
   ['1단계', 'Cloud Practitioner로 AWS 지도 잡기', 'Region, AZ, EC2, S3, RDS, Lambda, IAM, 비용 도구를 먼저 정리합니다.'],
   ['2단계', 'AI Practitioner로 AI 개념 연결', 'AI, ML, Generative AI, Foundation Model, Bedrock의 관계를 정리합니다.'],
   ['3단계', '겹치는 보안 영역만 묶기', 'IAM, 암호화, 개인정보, 거버넌스는 Cloud와 AI 모두에서 공통으로 봅니다.'],
-  ['4단계', '상세 페이지에서 따로 학습', 'Cloud와 AI의 문제유형, 공부 순서, 실제 공부 내용은 각 상세 페이지에서 분리해 봅니다.'],
+  ['4단계', '상세 페이지에서 따로 학습', 'Cloud와 AI의 문제유형, 학습 로드맵, 실제 공부 내용은 각 상세 페이지에서 분리해 봅니다.'],
 ];
 
 const decisionGuide = [
@@ -51,15 +57,16 @@ export default function FoundationalPage() {
       <header className="topbar">
         <Link className="brand" href="/">Data Lab</Link>
         <nav className="globalNav" aria-label="학습 트랙">
-          <Link href="/adsp">ADsP</Link>
-          <Link href="/#sql">SQL</Link>
-          <Link className="activeTrack" href="/aws">AWS</Link>
-          <Link href="/buc">부과대</Link>
+          <Link href="/adsp#dashboard">ADsP</Link>
+          <Link href="/sqld#dashboard">SQLD</Link>
+          <Link className="activeTrack" href="/aws#dashboard">AWS</Link>
+          <Link href="/smart-social#dashboard">AI DX</Link>
         </nav>
         <Link className="loginButton linkButton" href="/aws/study">AWS 학습</Link>
       </header>
 
       <nav className="trackNav" aria-label="AWS 내부 메뉴">
+        <Link href="/aws#dashboard">Dashboard</Link>
         <Link href="/aws/education">AWS 교육</Link>
         <Link href="/aws/study">AWS 학습</Link>
       </nav>
@@ -97,6 +104,18 @@ export default function FoundationalPage() {
             <div className="summaryGrid">
               {compareItems.map((item) => (
                 <Link className="summaryCard linkedCard" href={item.link} key={item.title}>
+                  <div className="certBadgeItem compactCertBadge">
+                    <span className="certBadgeCode">{item.code}</span>
+                    <div className={`certBadge ${item.title.includes(' ') ? 'certBadgeLong' : ''}`}>
+                      <span className="certBadgeBrand">
+                        <b>aws</b>
+                        <i>certified</i>
+                      </span>
+                      <strong>{item.title}</strong>
+                      <em>{item.level}</em>
+                    </div>
+                    <span className="certBadgeCaption">{item.korean}</span>
+                  </div>
                   <span className="subjectOrder">{item.role}</span>
                   <h3>{item.title}</h3>
                   <p>{item.summary}</p>
@@ -113,8 +132,8 @@ export default function FoundationalPage() {
 
           <section className="learningBlock" id="order">
             <div className="sectionTitle compact">
-              <p className="eyebrow">Study Flow</p>
-              <h2>중복 없는 공부 순서</h2>
+              <p className="eyebrow">Study Roadmap</p>
+              <h2>학습 로드맵</h2>
             </div>
             <div className="simpleList">
               {studyFlow.map(([step, title, content]) => (
@@ -129,7 +148,7 @@ export default function FoundationalPage() {
           <section className="learningBlock" id="question-types">
             <div className="sectionTitle compact">
               <p className="eyebrow">Decision Guide</p>
-              <h2>무엇부터 볼지 판단</h2>
+              <h2>학습 선택 가이드</h2>
             </div>
             <div className="typeGrid">
               {decisionGuide.map(([title, content]) => (
