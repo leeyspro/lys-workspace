@@ -59,7 +59,6 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
           <Link className="activeTrack" href="/adsp#dashboard">ADsP</Link>
           <Link href="/sqld#dashboard">SQLD</Link>
           <Link href="/aws#dashboard">AWS</Link>
-          <Link href="/smart-social#dashboard">AI DX</Link>
         </nav>
         <Link className="loginButton linkButton" href="/adsp#summary">
           과목 목록

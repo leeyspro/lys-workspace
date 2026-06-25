@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-type Track = 'adsp' | 'sqld' | 'aws' | 'ai-dx' | 'home' | 'buc';
+type Track = 'adsp' | 'sqld' | 'aws' | 'home';
 
 type SubNavItem = {
   label: string;
@@ -17,7 +17,6 @@ const mainNav = [
   { key: 'adsp', label: 'ADsP', href: '/adsp#dashboard' },
   { key: 'sqld', label: 'SQLD', href: '/sqld#dashboard' },
   { key: 'aws', label: 'AWS', href: '/aws#dashboard' },
-  { key: 'ai-dx', label: 'AI DX', href: '/smart-social#dashboard' },
 ] as const;
 
 export default function SiteHeader({ active, subNav = [], subNavLabel = '세부 메뉴' }: SiteHeaderProps) {

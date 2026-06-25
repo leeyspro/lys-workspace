@@ -1,51 +1,46 @@
 import Link from 'next/link';
 
-const tracks = [
+const primarySpaces = [
   {
-    id: 'adsp',
     title: 'ADsP',
-    subtitle: '데이터분석 준전문가',
-    status: '진행중',
-    description: '시험정보, 과목별 핵심요약, 문제유형, 학습관리를 한곳에서 정리합니다.',
-    href: '/adsp',
-    progress: '초기 구축',
+    label: '데이터분석 준전문가',
+    href: '/adsp#dashboard',
+    status: '운영중',
+    summary: '시험 정보, 과목별 핵심 요약, 문제유형과 학습 흐름을 한곳에서 관리합니다.',
+    points: ['과목 구조', '문제유형', '학습 관리'],
   },
   {
-    id: 'sql',
     title: 'SQLD',
-    subtitle: 'SQL 개발자',
-    status: '진행중',
-    description: '데이터 모델링, SQL 기본·활용, 문제유형과 학습관리를 정리합니다.',
-    href: '/sqld',
-    progress: '초기 구성',
+    label: 'SQL 개발자',
+    href: '/sqld#dashboard',
+    status: '운영중',
+    summary: '데이터 모델링과 SQL 기본·활용 범위를 자격증 학습용으로 정리합니다.',
+    points: ['데이터 모델링', 'SQL 기본', '실전 정리'],
   },
   {
-    id: 'aws',
     title: 'AWS',
-    subtitle: 'AI·Cloud 교육과정',
-    status: '진행중',
-    description: 'AWS AI Practitioner, SAA-C03, AI Educator Academy 교육 내용을 정리합니다.',
-    href: '/aws',
-    progress: '구성중',
+    label: 'Cloud·AI Certification',
+    href: '/aws/study',
+    status: '개편중',
+    summary: '자격증 단계, 인증 배지, 시험코드, 레벨별 상세 핵심 포인트를 연결합니다.',
+    points: ['Certification Map', 'Badge Guide', 'Study Roadmap'],
   },
-  {
-    id: 'buc',
-    title: '부과대',
-    subtitle: '산학협력 지식환류 플랫폼',
-    status: '목업 반영',
-    description: 'DX-SPARK 산학협력 환류 콘솔의 기능정의, 메뉴 구조, 데이터 흐름을 정리합니다.',
-    href: '/buc',
-    progress: '기능정의 정리',
-  },
-  {
-    id: 'smart-social',
-    title: 'AI DX',
-    subtitle: '스마트소셜 업무 기록',
-    status: '업무관리',
-    description: '스마트소셜 AI DX 사업부의 사이트, 대학별 프로젝트, DX-Spark 업무 내용을 날짜별로 관리합니다.',
-    href: '/smart-social',
-    progress: '업무 로그 구성',
-  },
+];
+
+const quickLinks = [
+  ['AWS 자격증 단계 비교', '/aws/study#roadmap'],
+  ['Foundational 상세', '/aws/study/foundational#overview'],
+  ['AI Practitioner', '/aws/study/ai-practitioner#overview'],
+  ['Cloud Practitioner', '/aws/study/cloud-practitioner#overview'],
+  ['ADsP Dashboard', '/adsp#dashboard'],
+  ['SQLD Dashboard', '/sqld#dashboard'],
+];
+
+const recentUpdates = [
+  'AWS Study Map에 실제 인증 배지형 UI와 시험코드 연결',
+  '레벨 상세 페이지에 자격증별 배지, 코드, 핵심 범위 카드 추가',
+  'AWS 왼쪽 메뉴를 여러 섹션 동시 펼침 방식으로 변경',
+  'Data Lab 메인 화면을 학습 포털 구조로 개편',
 ];
 
 export default function DataLabHome() {
@@ -53,59 +48,79 @@ export default function DataLabHome() {
     <main className="site">
       <header className="topbar">
         <Link className="brand" href="/">Data Lab</Link>
-        <nav className="globalNav" aria-label="학습 트랙">
+        <nav className="globalNav" aria-label="Data Lab navigation">
           <Link href="/adsp#dashboard">ADsP</Link>
           <Link href="/sqld#dashboard">SQLD</Link>
           <Link href="/aws#dashboard">AWS</Link>
-          <Link href="/smart-social#dashboard">AI DX</Link>
         </nav>
         <button className="loginButton" type="button">login</button>
       </header>
 
-      <section className="labHero">
-        <p className="eyebrow">Personal Learning Workspace</p>
-        <h1>Data Lab</h1>
-        <p>
-          ADsP를 시작으로 SQLD, AWS까지 확장할 개인 학습 포털입니다.
-          자격증별 대시보드와 요약노트, 문제유형, 학습기록을 트랙별로 관리합니다.
-        </p>
+      <section className="homeHero">
+        <div>
+          <p className="eyebrow">Data Lab Workspace</p>
+        </div>
+        <div className="homeHeroPanel" aria-label="Workspace summary">
+          <span>현재 정리 범위</span>
+          <strong>3개 학습 공간</strong>
+          <p>ADsP · SQLD · AWS</p>
+        </div>
       </section>
 
-      <section className="section">
-        <div className="sectionTitle">
-          <p className="eyebrow">Learning Tracks</p>
-          <h2>학습 트랙</h2>
+      <section className="homeSection">
+        <div className="homeSectionHeader">
+          <div>
+            <p className="eyebrow">Workspace</p>
+            <h2>바로가기</h2>
+          </div>
+          <Link className="homeTextLink" href="/aws/study">AWS Study Map</Link>
         </div>
-        <div className="trackGrid">
-          {tracks.map((track) => (
-            <Link className="trackCard" href={track.href} id={track.id} key={track.id}>
-              <span className={track.status === '진행중' ? 'badge activeBadge' : 'badge'}>{track.status}</span>
-              <h3>{track.title}</h3>
-              <strong>{track.subtitle}</strong>
-              <p>{track.description}</p>
-              <div>
-                <span>상태</span>
-                <b>{track.progress}</b>
+        <div className="homeSpaceGrid">
+          {primarySpaces.map((space) => (
+            <Link className="homeSpaceCard" href={space.href} key={space.title}>
+              <div className="homeCardTop">
+                <span>{space.status}</span>
+                <b>{space.label}</b>
               </div>
+              <h3>{space.title}</h3>
+              <p>{space.summary}</p>
+              <ul>
+                {space.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="section splitGrid">
-        <article className="panel">
-          <div className="sectionTitle compact">
-            <p className="eyebrow">Current Focus</p>
-            <h2>현재 목표</h2>
+      <section className="homeSection homeTwoColumn">
+        <article className="homePanel">
+          <div className="homeSectionHeader compact">
+            <div>
+              <p className="eyebrow">Quick Access</p>
+              <h2>자주 여는 페이지</h2>
+            </div>
           </div>
-          <p>ADsP 자격증 취득과 AWS AI·Cloud 교육과정 정리를 우선 목표로 두고 학습 콘텐츠를 쌓습니다.</p>
+          <div className="homeQuickList">
+            {quickLinks.map(([label, href]) => (
+              <Link href={href} key={href}>{label}</Link>
+            ))}
+          </div>
         </article>
-        <article className="panel">
-          <div className="sectionTitle compact">
-            <p className="eyebrow">Next Expansion</p>
-            <h2>확장 방향</h2>
+
+        <article className="homePanel">
+          <div className="homeSectionHeader compact">
+            <div>
+              <p className="eyebrow">Recent Updates</p>
+              <h2>최근 반영 내용</h2>
+            </div>
           </div>
-          <p>SQLD는 같은 구조로 대시보드, 개념요약, 문제유형, 학습관리 페이지를 추가할 수 있게 구성합니다.</p>
+          <ul className="homeUpdateList">
+            {recentUpdates.map((update) => (
+              <li key={update}>{update}</li>
+            ))}
+          </ul>
         </article>
       </section>
     </main>

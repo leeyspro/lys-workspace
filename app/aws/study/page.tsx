@@ -193,7 +193,6 @@ export default function AwsStudyPage() {
           <Link href="/adsp#dashboard">ADsP</Link>
           <Link href="/sqld#dashboard">SQLD</Link>
           <Link className="activeTrack" href="/aws#dashboard">AWS</Link>
-          <Link href="/smart-social#dashboard">AI DX</Link>
         </nav>
         <button className="loginButton" type="button">login</button>
       </header>

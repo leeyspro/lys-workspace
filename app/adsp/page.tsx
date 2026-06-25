@@ -97,7 +97,6 @@ export default function AdspPage() {
           <Link className="activeTrack" href="/adsp#dashboard">ADsP</Link>
           <Link href="/sqld#dashboard">SQLD</Link>
           <Link href="/aws#dashboard">AWS</Link>
-          <Link href="/smart-social#dashboard">AI DX</Link>
         </nav>
         <button className="loginButton" type="button">login</button>
       </header>
